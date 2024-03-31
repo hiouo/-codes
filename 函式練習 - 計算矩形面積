@@ -1,0 +1,11 @@
+class color:
+  red="\033[91m"
+def calculate_area():
+  return int(length)*int(width)
+while 1:
+  length = input("輸入矩形的長：")
+  width = input("輸入矩形的寬：")
+  if calculate_area()<=0:
+    print(f"{color.red}矩形面積一定大於0")
+    break
+  print(f"長為{length}寬為{width}的矩形面積為{calculate_area()}")
