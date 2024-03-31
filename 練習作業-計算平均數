@@ -1,0 +1,10 @@
+sum_num=0
+time=0
+while 1:
+  number=input("輸入數字：")
+  if number=="done":
+    break
+  else:
+    sum_num+=int(number)
+    time+=1
+print(f"數字的總平均是{sum_num/time}")
