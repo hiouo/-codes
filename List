@@ -1,0 +1,28 @@
+#LISTs
+
+while True:
+  operate=input("選擇操作: 1.新增 2.修改 3.刪除 4.查詢 5.結束\n")
+
+  if operate=="1":
+    add=input("新增 人名/成績：").split("/")
+    grade_list.extend(add)
+  elif operate=="2":
+    change_name=input("輸入要更改成績的人名：")
+    name_place=grade_list.index(change_name)
+    change_grade=input("輸入要更改的成績：")
+    grade_list[name_place+1]=change_grade
+  elif operate=="3":
+    del_name=input("輸入要刪除的人名：")
+    dn_place=grade_list.index(del_name)
+    del grade_list[dn_place:dn_place+2]
+  elif operate=="4":
+    in_list=input("輸入要查詢成績的人名：")
+    if in_list in grade_list:
+      print(grade_list[grade_list.index(in_list)+1])
+    else:
+      print("搜尋的人名不在清單中")
+  elif operate=="5":
+    break
+  else:
+    print("請輸入有效的選擇")
+  print(grade_list)
