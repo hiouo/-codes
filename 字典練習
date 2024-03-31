@@ -1,0 +1,72 @@
+class colors:
+    green= "\033[92m"  # GREEN
+    red= "\033[91m"  # RED
+    reset= "\033[0m"  # RESET COLOR
+
+def main_menu():
+    print(f"{colors.green}\n===== 學生管理系統 ====={colors.reset}")
+    print(f"{colors.green}1. 新增學生姓名和成績{colors.reset}")
+    print(f"{colors.green}2. 刪除一個學生{colors.reset}")
+    print(f"{colors.green}3. 修改一個學生的成績{colors.reset}")
+    print(f"{colors.green}4. 顯示所有學生的姓名和成績{colors.reset}")
+    print(f"{colors.green}5. 退出{colors.reset}")
+    choice = input("請選擇一個操作 (1-5): ")
+    return choice
+
+def add_student(students):
+    name = input("請輸入學生的姓名: ")
+    score = input("請輸入學生的成績: ")
+    students[name]=score
+    print(f"學生 {name} 已被新增。")
+
+def delete_student(students):
+  name = input("請輸入要刪除的學生姓名: ")
+  if name in students:
+      students.pop(name)
+      print(f"學生 {name} 已被刪除。")
+  else:
+      print(f"{colors.red}沒有此學生。{colors.reset}")
+
+def modify_score(students):
+  name = input("請輸入要修改成績的學生姓名: ")
+  if name not in students:
+    print(f"{colors.red}沒有此學生。{colors.reset}")
+  else:
+    score = input("請輸入要修改成的成績:")
+    students[name]=score
+    print(f"{name}同學的成績已更改為{score}分。")
+
+
+def show_students(students):
+  for name, score in students.items():
+    print(f"姓名: {name}, 成績: {score}")
+
+def main():
+    students = {
+        "Alice": "90",
+        "Bob": "85",
+        "Charlie": "88",
+        "David": "92",
+        "Eve": "78"
+    }
+
+    while True:
+        #呼叫main_menu函式，叫出選單並把輸入的選擇存到choice變數
+        choice = main_menu()
+
+        if choice == "1":
+            add_student(students)
+        elif choice == "2":
+            delete_student(students)
+        elif choice == "3":
+            modify_score(students)
+        elif choice == "4":
+            show_students(students)
+        elif choice == "5":
+            print("感謝使用學生管理系統，再見！")
+            break
+        else:
+            print(f"{colors.red}無效的輸入，請重新輸入。{colors.reset}")
+
+if __name__ == "__main__":
+    main()
