@@ -1,0 +1,6 @@
+line=int(input("輸入三角形的高度"))
+time=1
+for _ in range(line):
+  print("▧"*(time-1)+"◣")
+
+  time+=1
